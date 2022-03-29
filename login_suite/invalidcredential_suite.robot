@@ -19,7 +19,9 @@ TC2       mnop@gmail.com      gdhey     Login was unsuccessful.
 *** Keywords ***
 Verify Invalid Credential Template
     [Arguments]     ${email}     ${password}     ${expectederror}
+    Set Selenium Speed    1s
     Input Text    id=Email    ${email}
     Input Password    id=Password    ${password}
     Click Element    xpath=//*[@class="button-1 login-button"]
     Element Should Contain    xpath=//*[@class="message-error validation-summary-errors"]    ${expectederror}
+    Capture Page Screenshot
